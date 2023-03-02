@@ -1,7 +1,6 @@
 <?php  
  $connect = mysqli_connect("localhost", "root", "", "neeyat");  
 session_start();
-<<<<<<< HEAD
 if (isset($_GET['aoi'])){
 $aoi= $_SESSION['aoi'];
 $Pincode= $_SESSION['Pincode'];
@@ -10,17 +9,6 @@ $Pincode= $_SESSION['Pincode'];
 
 //$sql = "SELECT * FROM mentee where mentee.aoi = '$aoi'" ;
  $sql = " SELECT * FROM mentee  JOIN mentor ON mentor.aoi = mentee.aoi AND mentor.Pincode=mentee.Pincode"; 
-=======
-//  if (isset($_GET['aoi'])){
-//  $aoi= $_SESSION['aoi'];
-//  $Pincode= $_SESSION['Pincode'];
-//  }
- $sql = " SELECT *
- FROM mentee
- JOIN mentor ON mentor.aoi = mentee.aoi AND mentor.Pincode = mentee.Pincode
- ORDER BY mentee.id DESC
- LIMIT 1;"; 
->>>>>>> 7a42e639fe664fe6ab6ac26c5f408439602d90ef
  $result = mysqli_query($connect, $sql);
  ?>
  <!DOCTYPE html>  
@@ -154,6 +142,40 @@ li{
                                <th>Field of Interest </th>  
                           </tr>  
                           <?php  
+<<<<<<< HEAD
+  //if (mysqli_num_rows($result) > 0) 
+  //{  
+       //while($row = mysqli_fetch_array($result))
+           //$row = $result->fetch_assoc())  
+      // {  
+ // 
+ if (mysqli_num_rows($result) > 0) 
+ {  
+      while($row = mysqli_fetch_array($result))
+          // $row = $result->fetch_assoc())  
+      {  
+ ?>  
+
+ <tr>  
+      <td><?php echo $row["name"];?></td>  
+       
+      <td><?php echo $row["email"];?></td>  
+      <td><?php echo $row["aoi"]; ?></td>  
+ </tr>  
+ <?php  
+      }  
+ }
+ 
+ 
+
+ ?>  
+</table>  
+</div>  
+</div>  
+<br />  
+</body>  
+</html>
+=======
                           if(mysqli_num_rows($result) > 0)  
                           {  
                                while($row = mysqli_fetch_array($result))  
@@ -176,3 +198,4 @@ li{
            <br />  
       </body>  
  </html> what is the problem
+>>>>>>> d8b9c0c75c3f5a2312466a9616877a9e936b458b
